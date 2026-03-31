@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fransmore | Menu</title>
+    <link rel="icon" type="image/png" href="assets/fransmore-logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { gold: '#D4AF37', navy: '#1A202C', charcoal: '#2D3748', cream: '#FDFBF7' }, fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] } } } }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fransmore.css">
+</head>
+<body class="font-sans" data-page="menu">
+    <header class="sticky top-0 z-50 glass-nav border-b border-gold/10 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="brand-mark"><span class="brand-logo-shell"><img src="assets/fransmore-logo.png" alt="Fransmore Cakes and Pastries logo" class="brand-logo"></span><span class="brand-copy"><span class="brand-title">Fransmore</span><span class="brand-subtitle">Cakes and Pastries</span></span></a>
+            <div class="hidden lg:flex items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal"><a href="index.html" data-nav="home" class="nav-link hover:text-gold">Home</a><a href="menu.html" data-nav="menu" class="nav-link hover:text-gold">Menu</a><a href="about.html" data-nav="about" class="nav-link hover:text-gold">Our Story</a><a href="contact.html" data-nav="contact" class="nav-link hover:text-gold">Contact</a></div>
+            <div class="flex items-center gap-3"><button onclick="startGenericOrder()" class="hidden sm:inline-flex bg-navy text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition shadow-lg">Order via WhatsApp</button><button onclick="toggleMobileMenu()" class="lg:hidden w-11 h-11 rounded-full border border-gold/20 text-navy flex items-center justify-center hover:border-gold hover:text-gold transition"><i data-lucide="menu" class="w-5 h-5"></i></button></div>
+        </nav>
+        <div id="mobile-nav" class="hidden lg:hidden border-t border-gold/10 bg-white/90 backdrop-blur-xl"><div class="max-w-7xl mx-auto px-6 py-5 space-y-3"><a href="Fransmore.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Home</a><a href="menu.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Menu</a><a href="about.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Our Story</a><a href="contact.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Contact</a></div></div>
+    </header>
+
+    <main class="page-shell py-16 px-6 max-w-7xl mx-auto">
+        <section class="bg-white border border-gold/10 rounded-[28px] p-8 md:p-10 mb-10 panel-luxe">
+            <div class="flex flex-col xl:flex-row xl:items-end xl:justify-between gap-8">
+                <div class="max-w-3xl">
+                    <div class="logo-showcase rounded-[28px] p-4 inline-flex mb-6">
+                        <img src="assets/fransmore-logo.png" alt="Fransmore logo" class="w-20 h-20 object-cover rounded-[20px] border border-gold/10">
+                    </div>
+                    <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-3">Menu</p>
+                    <h1 id="menu-title" class="text-4xl md:text-5xl font-serif text-navy mb-4">The Menu</h1>
+                    <p id="menu-summary" class="text-gray-500 font-light leading-relaxed">Browse ready-to-eat snacks, chilled refreshments, and custom celebration pieces from Oby's home kitchen.</p>
+                    <p id="menu-data-status" class="hidden text-xs uppercase tracking-[0.25em] text-gray-400 font-bold mt-4">Checking menu data source...</p>
+                    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                        <label class="flex-1 flex items-center gap-3 rounded-[22px] border border-gold/10 bg-cream px-4 py-4">
+                            <span class="text-gold text-[10px] uppercase tracking-[0.28em]" aria-hidden="true">Search</span>
+                            <input id="menu-search-input" type="search" placeholder="Search for cakes, snacks, drinks, parfaits..." class="w-full bg-transparent text-sm text-navy outline-none placeholder:text-gray-400" autocomplete="off">
+                        </label>
+                        <button id="clear-menu-search" type="button" class="px-5 py-3 rounded-2xl border border-gold/15 bg-white text-xs font-bold uppercase tracking-widest text-navy hover:border-gold hover:text-gold transition">Clear Search</button>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button onclick="toggleMenuFilters()" class="px-5 py-3 rounded-2xl border border-gold/20 text-navy text-xs font-bold uppercase tracking-widest hover:border-gold hover:text-gold transition"><span id="menu-filter-toggle-label">Hide Filters</span></button>
+                    <button onclick="applyMenuView('all')" id="reset-menu-filters" class="px-5 py-3 rounded-2xl bg-navy text-white text-xs font-bold uppercase tracking-widest hover:bg-gold transition">Clear Filters</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-layout" class="grid xl:grid-cols-[280px_minmax(0,1fr)] gap-8 items-start">
+            <aside id="menu-filters-panel" class="bg-white rounded-[28px] border border-gold/10 p-6 panel-luxe xl:sticky xl:top-28">
+                <div class="mb-6">
+                    <h3 class="text-xl font-serif text-navy">Filters</h3>
+                    <p class="text-sm text-gray-500 font-light mt-2">Narrow the menu by type, occasion, style, and portion.</p>
+                </div>
+                <div id="menu-filters" class="space-y-8"></div>
+            </aside>
+            <div class="space-y-6">
+                <div class="bg-white rounded-[28px] border border-gold/10 p-5 panel-luxe">
+                    <div id="active-filter-chips" class="flex flex-wrap gap-3"></div>
+                    <p id="product-results-meta" class="hidden text-xs uppercase tracking-[0.3em] text-gray-400 mt-4"></p>
+                </div>
+                <div id="empty-state" class="hidden bg-white rounded-[28px] border border-gold/10 p-10 text-center panel-luxe">
+                    <p id="empty-state-title" class="text-2xl font-serif text-navy mb-3">No products match these filters right now.</p>
+                    <p id="empty-state-text" class="text-gray-500 font-light mb-6">Try clearing some filters or return to the full menu.</p>
+                    <button onclick="applyMenuView('all')" class="px-6 py-3 rounded-2xl bg-navy text-white text-xs font-bold uppercase tracking-widest hover:bg-gold transition">Show Everything</button>
+                </div>
+                <section class="bg-white rounded-[28px] border border-gold/10 p-4 md:p-5 panel-luxe">
+                    <div id="menu-loading" class="hidden py-16 flex flex-col items-center justify-center gap-5">
+                        <div class="spinner" aria-hidden="true">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[0.35em] text-gray-400">Loading The Menu</p>
+                    </div>
+                    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"></div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <div id="product-card-modal" class="product-preview-overlay hidden fixed inset-0 z-[110] p-4 md:p-6" onclick="closeProductCard()">
+        <div class="min-h-full flex items-center justify-center">
+            <div id="product-card-modal-shell" class="product-preview-shell w-full max-w-6xl overflow-hidden" onclick="event.stopPropagation()">
+                <div class="flex items-center justify-between border-b border-gold/10 px-6 py-5 md:px-8">
+                    <div>
+                        <p id="product-card-modal-eyebrow" class="text-gold text-[10px] uppercase tracking-[0.3em] mb-1">Fransmore Menu</p>
+                        <h3 id="product-card-modal-title" class="text-2xl md:text-3xl font-serif text-navy">Product Preview</h3>
+                    </div>
+                    <button type="button" onclick="closeProductCard()" class="h-11 w-11 rounded-full border border-gold/15 text-navy hover:border-gold hover:text-gold transition">
+                        <span class="sr-only">Close product preview</span>
+                        &times;
+                    </button>
+                </div>
+                <div id="product-card-modal-content" class="max-h-[calc(100vh-8rem)] overflow-y-auto px-6 py-6 md:px-8 md:py-8"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-luxe text-white pt-20 pb-12 px-6"><div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[10px] uppercase tracking-[0.35em] text-white/35"><p>&copy; <span data-footer-year>2026</span> Fransmore Cakes and Pastries</p><p>Crafted for elegant celebrations, daily cravings, and memorable gifting.</p></div></footer>
+    <div class="lg:hidden fixed bottom-4 inset-x-4 z-40"><div class="floating-order-bar rounded-[28px] bg-white/95 backdrop-blur-xl border border-gold/15 p-3 flex items-center gap-3"><button onclick="startGenericOrder()" class="flex-1 bg-navy text-white px-4 py-4 rounded-[20px] text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition">Order Now</button><button onclick="startServiceInquiry()" class="flex-1 border border-gold/15 text-navy px-4 py-4 rounded-[20px] text-[10px] font-bold uppercase tracking-widest hover:border-gold hover:text-gold transition">Inquire Now</button></div></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="fransmore.js"></script>
+</body>
+</html>

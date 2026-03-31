@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fransmore | Premium Bakery & Custom Cakes</title>
+    <link rel="icon" type="image/png" href="assets/fransmore-logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { gold: '#D4AF37', navy: '#1A202C', charcoal: '#2D3748', cream: '#FDFBF7' },
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fransmore.css">
+</head>
+<body class="font-sans" data-page="home">
+    <header class="sticky top-0 z-50 glass-nav border-b border-gold/10 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="Fransmore.html" class="brand-mark">
+                <span class="brand-logo-shell"><img src="assets/fransmore-logo.png" alt="Fransmore Cakes and Pastries logo" class="brand-logo"></span>
+                <span class="brand-copy">
+                    <span class="brand-title">Fransmore</span>
+                    <span class="brand-subtitle">Cakes and Pastries</span>
+                </span>
+            </a>
+            <div class="hidden lg:flex items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal">
+                <a href="index.html" data-nav="home" class="nav-link hover:text-gold">Home</a>
+                <a href="menu.html" data-nav="menu" class="nav-link hover:text-gold">Menu</a>
+                <a href="about.html" data-nav="about" class="nav-link hover:text-gold">Our Story</a>
+                <a href="contact.html" data-nav="contact" class="nav-link hover:text-gold">Contact</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="startGenericOrder()" class="hidden sm:inline-flex bg-navy text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition shadow-lg">Order via WhatsApp</button>
+                <button onclick="toggleMobileMenu()" class="lg:hidden w-11 h-11 rounded-full border border-gold/20 text-navy flex items-center justify-center hover:border-gold hover:text-gold transition"><i data-lucide="menu" class="w-5 h-5"></i></button>
+            </div>
+        </nav>
+        <div id="mobile-nav" class="hidden lg:hidden border-t border-gold/10 bg-white/90 backdrop-blur-xl">
+            <div class="max-w-7xl mx-auto px-6 py-5 space-y-3">
+                <a href="index.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Home</a>
+                <a href="menu.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Menu</a>
+                <a href="about.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Our Story</a>
+                <a href="contact.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Contact</a>
+                <div class="grid grid-cols-2 gap-3 pt-3">
+                    <button onclick="startGenericOrder()" class="bg-navy text-white px-4 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition">Order</button>
+                    <button onclick="startServiceInquiry()" class="border border-gold/20 text-navy px-4 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:border-gold hover:text-gold transition">Inquire</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <section class="relative h-[85vh] flex items-center justify-center text-center px-6 overflow-hidden">
+            <div class="absolute inset-0 bg-navy/40 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover" alt="Bakery hero image">
+            <div class="relative z-20 max-w-4xl">
+                <h1 class="text-6xl md:text-9xl font-serif mb-6 text-white drop-shadow-2xl italic animate-fade-in">Elegance In Every Bite</h1>
+                <p class="text-lg md:text-2xl text-white/90 mb-10 font-light tracking-widest uppercase">.........eat and be happy</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="menu.html" class="gold-gradient text-navy px-12 py-5 rounded-full font-bold uppercase tracking-widest hover:scale-105 transition shadow-2xl">Browse Full Menu</a>
+                    <button onclick="startGenericOrder()" class="border border-white/40 text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-navy transition shadow-2xl">Order via WhatsApp</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif text-navy">The Collections</h2>
+                <p class="text-gold text-xs uppercase tracking-[0.3em] mt-2">Curated for your palate</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10">
+                <a href="menu.html?view=bakery" class="group cursor-pointer bg-white p-12 rounded-[40px] shadow-sm border border-gold/5 text-center hover:shadow-xl transition-all">
+                    <i data-lucide="cake" class="w-12 h-12 text-gold mx-auto mb-6"></i>
+                    <h3 class="font-serif text-3xl text-navy mb-4">The Bakery</h3>
+                    <p class="text-gray-400 text-sm mb-6">Signature cakes and buttery treats.</p>
+                    <span class="text-gold font-bold text-xs uppercase tracking-widest group-hover:tracking-[0.3em] transition-all">Explore -&gt;</span>
+                </a>
+                <a href="menu.html?view=snacks" class="group cursor-pointer bg-white p-12 rounded-[40px] shadow-sm border border-gold/5 text-center hover:shadow-xl transition-all">
+                    <i data-lucide="cookie" class="w-12 h-12 text-gold mx-auto mb-6"></i>
+                    <h3 class="font-serif text-3xl text-navy mb-4">The Snack Bar</h3>
+                    <p class="text-gray-400 text-sm mb-6">Gourmet chinchin, jars, and crisp signature favorites.</p>
+                    <span class="text-gold font-bold text-xs uppercase tracking-widest group-hover:tracking-[0.3em] transition-all">Explore -&gt;</span>
+                </a>
+                <a href="menu.html?view=refreshments" class="group cursor-pointer bg-white p-12 rounded-[40px] shadow-sm border border-gold/5 text-center hover:shadow-xl transition-all">
+                    <i data-lucide="droplet" class="w-12 h-12 text-gold mx-auto mb-6"></i>
+                    <h3 class="font-serif text-3xl text-navy mb-4">Refreshments</h3>
+                    <p class="text-gray-400 text-sm mb-6">Creamy parfaits, fresh yogurt, and artisan zobo.</p>
+                    <span class="text-gold font-bold text-xs uppercase tracking-widest group-hover:tracking-[0.3em] transition-all">Explore -&gt;</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-cream section-divider">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+                <div class="bg-white rounded-[42px] p-8 md:p-10 border border-gold/10 panel-luxe">
+                    <div class="mb-8">
+                        <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-3">Cake Idea Generator</p>
+                        <h2 class="text-4xl md:text-5xl font-serif text-navy mb-4">Imagine a Signature Cake Concept</h2>
+                        <p class="text-gray-500 font-light leading-relaxed">Tell Fransmore the occasion and flavor direction you have in mind. The generator will turn it into a simple cake idea that both you and the bakery can understand quickly before chatting on WhatsApp.</p>
+                    </div>
+                    <div class="grid gap-4">
+                        <input type="text" id="idea-occasion" placeholder="Occasion e.g. 30th birthday, bridal shower, baby dedication" class="w-full p-4 bg-cream rounded-2xl outline-none border border-transparent focus:border-gold">
+                        <input type="text" id="idea-flavors" placeholder="Flavor preferences e.g. vanilla, strawberry, chocolate" class="w-full p-4 bg-cream rounded-2xl outline-none border border-transparent focus:border-gold">
+                        <input type="text" id="idea-style" placeholder="Optional style notes e.g. elegant, floral, modern, all-white" class="w-full p-4 bg-cream rounded-2xl outline-none border border-transparent focus:border-gold">
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button onclick="generateCakeIdeaConcept()" class="gold-gradient text-navy px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-90 transition">Generate Simple Idea</button>
+                            <button onclick="shareCakeIdeaOnWhatsApp()" class="border border-gold/20 text-navy px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:border-gold hover:text-gold transition">Discuss on WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-navy text-white rounded-[42px] p-8 md:p-10 panel-luxe min-h-[420px] flex flex-col">
+                    <div class="mb-8">
+                        <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-3">Generated Concept</p>
+                        <h3 id="cake-idea-title" class="text-3xl font-serif mb-4">A simple cake idea will appear here.</h3>
+                        <p id="cake-idea-description" class="text-white/75 font-light leading-relaxed">Generate a cake idea to see a clear summary, flavor plan, look and feel, and a final touch you can discuss easily with Fransmore.</p>
+                    </div>
+                    <div class="grid gap-4 text-sm">
+                        <div class="rounded-[26px] bg-white/5 border border-white/10 p-5"><p class="text-gold text-[10px] uppercase tracking-[0.3em] mb-2">Flavor Plan</p><p id="cake-idea-flavor" class="text-white/80 font-light">Vanilla sponge, soft filling, and an easy-to-love finish tailored to your celebration.</p></div>
+                        <div class="rounded-[26px] bg-white/5 border border-white/10 p-5"><p class="text-gold text-[10px] uppercase tracking-[0.3em] mb-2">Look &amp; Feel</p><p id="cake-idea-design" class="text-white/80 font-light">A clean and understandable design idea will appear here once you generate one.</p></div>
+                        <div class="rounded-[26px] bg-white/5 border border-white/10 p-5"><p class="text-gold text-[10px] uppercase tracking-[0.3em] mb-2">Final Touch</p><p id="cake-idea-finish" class="text-white/80 font-light">A small finishing suggestion will appear here to help the cake feel complete.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cake-brief" class="py-24 bg-navy text-white relative overflow-hidden border-y border-white/5">
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-12 max-w-3xl mx-auto">
+                    <div class="inline-block px-4 py-1 border border-gold/30 rounded-full text-gold text-[10px] uppercase tracking-widest mb-4">Custom Cake Brief</div>
+                    <h2 class="text-4xl md:text-5xl font-serif mb-4">Share Your Cake Details Clearly</h2>
+                    <p class="text-gray-300 font-light leading-relaxed">If you already have a direction in mind, use this longer brief builder to send Fransmore the important details in one smooth WhatsApp message. It is designed to help both the customer and the bakery stay on the same page from the very first chat.</p>
+                </div>
+                <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-start">
+                    <div class="bg-white/5 p-8 rounded-[30px] border border-white/10 backdrop-blur-sm">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text" id="brief-occasion" placeholder="Occasion e.g. birthday dinner, wedding, baby dedication" class="w-full p-4 bg-white/5 rounded-2xl outline-none border border-white/10 focus:border-gold text-white placeholder:text-white/45">
+                            <input type="text" id="brief-size" placeholder="Size or servings e.g. 8-inch, serves 20" class="w-full p-4 bg-white/5 rounded-2xl outline-none border border-white/10 focus:border-gold text-white placeholder:text-white/45">
+                            <input type="text" id="brief-flavors" placeholder="Preferred flavors e.g. vanilla, red velvet, chocolate" class="w-full p-4 bg-white/5 rounded-2xl outline-none border border-white/10 focus:border-gold text-white placeholder:text-white/45">
+                            <input type="text" id="brief-style" placeholder="Style e.g. simple, floral, classy, modern" class="w-full p-4 bg-white/5 rounded-2xl outline-none border border-white/10 focus:border-gold text-white placeholder:text-white/45">
+                            <input type="text" id="brief-colors" placeholder="Colors or finishing details e.g. white and gold, butterflies, pearls" class="w-full p-4 bg-white/5 rounded-2xl outline-none border border-white/10 focus:border-gold text-white placeholder:text-white/45 md:col-span-2">
+                            <textarea id="brief-message" placeholder="Add any extra note here. You can mention inspiration, preferred pickup date, wording on the cake, budget range, or anything else Fransmore should know." class="w-full p-4 bg-white/5 rounded-2xl outline-none border border-white/10 focus:border-gold text-white placeholder:text-white/45 h-40 resize-none font-light md:col-span-2"></textarea>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3 mt-8">
+                            <button onclick="useCakeIdeaInBrief()" class="border border-white/15 text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:border-gold hover:text-gold transition">Use My Cake Idea</button>
+                            <button onclick="generateAIOrder()" class="gold-gradient text-navy font-bold flex-1 py-4 rounded-full uppercase tracking-widest hover:opacity-90 transition">Send Brief via WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-[30px] border border-white/10 backdrop-blur-sm">
+                        <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-4">Helpful Prompts</p>
+                        <h3 class="text-2xl font-serif mb-4">What Fransmore Needs Most</h3>
+                        <div class="space-y-4 text-white/80 font-light leading-relaxed text-sm">
+                            <p>Tell us what the cake is for, how many people it should serve, and the main flavors you want.</p>
+                            <p>Add the look you are going for, such as simple, elegant, playful, floral, or luxurious, so the design direction is easy to understand.</p>
+                            <p>You can also mention colors, toppers, inscriptions, preferred date, pickup or delivery plans, and any budget guidance.</p>
+                            <p>If you already used the Cake Idea Generator above, tap <span class="text-gold">Use My Cake Idea</span> to bring those details down into this brief automatically.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 text-center bg-cream">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-4xl font-serif text-navy mb-4">Join the Fransmore Circle</h2>
+                <p class="text-gray-500 mb-10 font-light">Be the first to taste seasonal releases and royal invitations.</p>
+                <div id="newsletter-form" class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" id="news-email" placeholder="Your Email Address" class="flex-1 bg-white border border-gold/20 px-6 py-4 rounded-full outline-none focus:border-gold">
+                    <button onclick="subscribeCircle()" class="bg-navy text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-gold transition">Subscribe</button>
+                </div>
+                <p id="news-success" class="hidden text-gold font-serif mt-6">Welcome to the Circle.</p>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 max-w-5xl mx-auto bg-white shadow-2xl rounded-[60px] my-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif text-navy">Customer Whispers</h2>
+                <div class="flex justify-center gap-1 mt-4 text-gray-300">
+                    <i data-lucide="star" onclick="setRating(1)" class="w-6 h-6 cursor-pointer star-btn"></i>
+                    <i data-lucide="star" onclick="setRating(2)" class="w-6 h-6 cursor-pointer star-btn"></i>
+                    <i data-lucide="star" onclick="setRating(3)" class="w-6 h-6 cursor-pointer star-btn"></i>
+                    <i data-lucide="star" onclick="setRating(4)" class="w-6 h-6 cursor-pointer star-btn"></i>
+                    <i data-lucide="star" onclick="setRating(5)" class="w-6 h-6 cursor-pointer star-btn"></i>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <input id="rev-name" type="text" placeholder="Your Name" class="bg-cream p-4 rounded-xl border border-gold/10 outline-none">
+                <textarea id="rev-text" placeholder="Your experience..." class="bg-cream p-4 rounded-xl border border-gold/10 h-14 outline-none"></textarea>
+            </div>
+            <button onclick="submitReview()" class="w-full py-4 bg-navy text-white rounded-xl uppercase tracking-widest font-bold hover:bg-gold transition">Post Review</button>
+            <div id="review-feed" class="mt-16 grid md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
+
+        <section class="py-24 px-6 max-w-4xl mx-auto">
+            <h2 class="text-3xl font-serif text-navy mb-12 text-center">Common Questions</h2>
+            <div class="space-y-4">
+                <details class="group bg-white rounded-2xl border border-gold/5 shadow-sm p-6 cursor-pointer"><summary class="list-none font-bold text-navy flex justify-between items-center">How far in advance should I order? <i data-lucide="chevron-down" class="w-4 h-4 group-open:rotate-180 transition"></i></summary><p class="text-gray-500 text-sm mt-4 leading-relaxed font-light">Celebration cakes require 48-72 hours. Snacks are often available for same-day pickup.</p></details>
+                <details class="group bg-white rounded-2xl border border-gold/5 shadow-sm p-6 cursor-pointer"><summary class="list-none font-bold text-navy flex justify-between items-center">Do you support delivery beyond your immediate area? <i data-lucide="chevron-down" class="w-4 h-4 group-open:rotate-180 transition"></i></summary><p class="text-gray-500 text-sm mt-4 leading-relaxed font-light">Yes. Fransmore coordinates delivery based on order type, timing, and destination. The team will confirm the most suitable fulfillment option for your location when your order is being arranged.</p></details>
+                <details class="group bg-white rounded-2xl border border-gold/5 shadow-sm p-6 cursor-pointer"><summary class="list-none font-bold text-navy flex justify-between items-center">Can I customize a cake to match my event theme? <i data-lucide="chevron-down" class="w-4 h-4 group-open:rotate-180 transition"></i></summary><p class="text-gray-500 text-sm mt-4 leading-relaxed font-light">Yes. You can share your colors, inspiration, wording, and preferred style, and Fransmore will guide you toward a design that suits the occasion.</p></details>
+                <details class="group bg-white rounded-2xl border border-gold/5 shadow-sm p-6 cursor-pointer"><summary class="list-none font-bold text-navy flex justify-between items-center">Do you take same-day snack orders? <i data-lucide="chevron-down" class="w-4 h-4 group-open:rotate-180 transition"></i></summary><p class="text-gray-500 text-sm mt-4 leading-relaxed font-light">For many ready-to-eat pastries, drinks, and crunchy snacks, yes. The fastest way to confirm same-day availability is through WhatsApp.</p></details>
+                <details class="group bg-white rounded-2xl border border-gold/5 shadow-sm p-6 cursor-pointer"><summary class="list-none font-bold text-navy flex justify-between items-center">What details should I send for a custom cake order? <i data-lucide="chevron-down" class="w-4 h-4 group-open:rotate-180 transition"></i></summary><p class="text-gray-500 text-sm mt-4 leading-relaxed font-light">Please include the occasion, date needed, number of servings, flavor choice, preferred style, colors, and any writing or decoration you want on the cake.</p></details>
+                <details class="group bg-white rounded-2xl border border-gold/5 shadow-sm p-6 cursor-pointer"><summary class="list-none font-bold text-navy flex justify-between items-center">Do you handle party trays and bulk orders? <i data-lucide="chevron-down" class="w-4 h-4 group-open:rotate-180 transition"></i></summary><p class="text-gray-500 text-sm mt-4 leading-relaxed font-light">Yes. Fransmore handles party trays, snack jars, event pastries, and larger volume requests for celebrations, offices, and resellers.</p></details>
+                <details class="group bg-white rounded-2xl border border-gold/5 shadow-sm p-6 cursor-pointer"><summary class="list-none font-bold text-navy flex justify-between items-center">What payment and pickup options do you offer? <i data-lucide="chevron-down" class="w-4 h-4 group-open:rotate-180 transition"></i></summary><p class="text-gray-500 text-sm mt-4 leading-relaxed font-light">Once your order is confirmed, Fransmore will guide you on payment, pickup timing, or delivery coordination depending on what you ordered and where you are located.</p></details>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-luxe text-white pt-24 pb-32 lg:pb-12 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="rounded-[42px] border border-white/10 bg-white/5 backdrop-blur-xl p-10 md:p-12 mb-16 panel-luxe">
+                <div class="flex flex-col xl:flex-row xl:items-end xl:justify-between gap-8">
+                    <div class="max-w-3xl">
+                        <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-4">Luxury Concierge</p>
+                        <h3 class="text-4xl md:text-5xl font-serif mb-4">Reserve a Premium Fransmore Experience</h3>
+                        <p class="text-white/70 font-light leading-relaxed">Custom cakes, polished gifting, brunch treats, and event-ready catering from a home kitchen known for care, craft, and memorable presentation.</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button onclick="startGenericOrder()" class="gold-gradient text-navy px-6 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-90 transition">Order via WhatsApp</button>
+                        <button onclick="startCateringInquiry()" class="border border-white/15 text-white px-6 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:border-gold hover:text-gold transition">Catering Concierge</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-[1.5fr_repeat(3,1fr)] gap-12 border-y border-white/10 py-14">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3"><div class="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-navy font-bold shadow-sm">FM</div><span class="text-2xl font-bold tracking-[0.35em] uppercase font-serif">Fransmore</span></div>
+                    <p class="text-white/65 text-sm font-light leading-relaxed max-w-md">A refined bakery experience where celebration cakes, premium snacks, and chilled refreshments are crafted with the warmth of Oby's home kitchen and the polish of a boutique atelier.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/share/188yLe3kxY/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center hover:text-gold hover:border-gold/40 transition"><svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5H17V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.5v3h2.8v8h3.2Z"/></svg></a>
+                        <a href="https://www.instagram.com/fra.nsmorecakesandpastries2?igsh=MjVzOXYwNWE2czE3" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center hover:text-gold hover:border-gold/40 transition"><svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 1.8A2.7 2.7 0 0 0 4.8 7.5v9a2.7 2.7 0 0 0 2.7 2.7h9a2.7 2.7 0 0 0 2.7-2.7v-9a2.7 2.7 0 0 0-2.7-2.7h-9Zm9.75 1.35a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1ZM12 7.8A4.2 4.2 0 1 1 7.8 12 4.2 4.2 0 0 1 12 7.8Zm0 1.8A2.4 2.4 0 1 0 14.4 12 2.4 2.4 0 0 0 12 9.6Z"/></svg></a>
+                        <a href="https://www.tiktok.com/@obyfr2" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center hover:text-gold hover:border-gold/40 transition"><svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M14.8 3c.2 1.6 1.2 3 2.8 3.8.9.5 1.8.7 2.8.7V11c-1.8 0-3.6-.5-5.1-1.5v5.5c0 3.5-2.7 6-6.1 6A6.1 6.1 0 0 1 4 14.9c0-3.4 2.7-6.1 6.1-6.1.3 0 .6 0 .9.1v3.2a3.7 3.7 0 0 0-.9-.1c-1.6 0-2.9 1.3-2.9 2.9S8.5 18 10.1 18s2.9-1.2 2.9-3V3h1.8Z"/></svg></a>
+                    </div>
+                </div>
+                <div class="space-y-4"><h4 class="text-gold font-bold text-[10px] uppercase tracking-[0.35em]">Navigation</h4><ul class="space-y-3 text-sm text-white/65 font-light"><li><a href="Fransmore.html" class="hover:text-white transition">Home</a></li><li><a href="menu.html" class="hover:text-white transition">Menu</a></li><li><a href="about.html" class="hover:text-white transition">Our Story</a></li><li><a href="contact.html" class="hover:text-white transition">Contact</a></li></ul></div>
+                <div class="space-y-4"><h4 class="text-gold font-bold text-[10px] uppercase tracking-[0.35em]">Concierge</h4><div class="space-y-3 text-sm text-white/65 font-light"><p>WhatsApp: 08058329165</p><p>Tel: 08061960760</p><p>Studio Base: Iba, Ojo, Lagos, Nigeria</p></div></div>
+                <div class="space-y-4"><h4 class="text-gold font-bold text-[10px] uppercase tracking-[0.35em]">Signature Services</h4><div class="space-y-3 text-sm text-white/65 font-light"><p>Custom celebration cakes with WhatsApp-first consultations.</p><p>Ready-to-enjoy pastries, parfaits, chinchin jars, and chilled drinks.</p><p>Premium catering support for parties, gift boxes, and intimate hosting.</p></div></div>
+            </div>
+            <div class="pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[10px] uppercase tracking-[0.35em] text-white/35"><p>&copy; <span data-footer-year>2026</span> Fransmore Cakes and Pastries</p><p>Crafted for elegant celebrations, daily cravings, and memorable gifting.</p></div>
+        </div>
+    </footer>
+
+    <div class="lg:hidden fixed bottom-4 inset-x-4 z-40"><div class="floating-order-bar rounded-[28px] bg-white/95 backdrop-blur-xl border border-gold/15 p-3 flex items-center gap-3"><button onclick="startGenericOrder()" class="flex-1 bg-navy text-white px-4 py-4 rounded-[20px] text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition">Order Now</button><button onclick="startServiceInquiry()" class="flex-1 border border-gold/15 text-navy px-4 py-4 rounded-[20px] text-[10px] font-bold uppercase tracking-widest hover:border-gold hover:text-gold transition">Inquire Now</button></div></div>
+
+    <script src="fransmore.js"></script>
+</body>
+</html>

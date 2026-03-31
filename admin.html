@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fransmore | Menu Admin</title>
+    <link rel="icon" type="image/png" href="assets/fransmore-logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { gold: '#D4AF37', navy: '#1A202C', charcoal: '#2D3748', cream: '#FDFBF7' }, fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] } } } }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fransmore.css">
+</head>
+<body class="font-sans bg-cream" data-page="admin">
+    <header class="sticky top-0 z-50 glass-nav border-b border-gold/10 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center gap-6">
+            <a href="index.html" class="brand-mark"><span class="brand-logo-shell"><img src="assets/fransmore-logo.png" alt="Fransmore Cakes and Pastries logo" class="brand-logo"></span><span class="brand-copy"><span class="brand-title">Fransmore</span><span class="brand-subtitle">Menu Admin</span></span></a>
+            <div class="hidden lg:flex items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal"><a href="Fransmore.html" class="nav-link hover:text-gold">Home</a><a href="menu.html" class="nav-link hover:text-gold">Menu</a><a href="about.html" class="nav-link hover:text-gold">Our Story</a><a href="contact.html" class="nav-link hover:text-gold">Contact</a></div>
+            <div class="flex items-center gap-3"><a href="menu.html" class="hidden sm:inline-flex bg-navy text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition shadow-lg">View Menu</a><button onclick="toggleMobileMenu()" class="lg:hidden w-11 h-11 rounded-full border border-gold/20 text-navy flex items-center justify-center hover:border-gold hover:text-gold transition"><i data-lucide="menu" class="w-5 h-5"></i></button></div>
+        </nav>
+        <div id="mobile-nav" class="hidden lg:hidden border-t border-gold/10 bg-white/90 backdrop-blur-xl"><div class="max-w-7xl mx-auto px-6 py-5 space-y-3"><a href="Fransmore.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Home</a><a href="menu.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Menu</a><a href="about.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Our Story</a><a href="contact.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Contact</a></div></div>
+    </header>
+
+    <main id="admin-platform" class="page-shell py-20 px-6">
+        <section class="max-w-7xl mx-auto space-y-10">
+            <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-start">
+                <div class="space-y-6">
+                    <div class="rounded-[40px] bg-white border border-gold/10 p-8 md:p-10 panel-luxe">
+                        <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-4">Supabase Menu Control</p>
+                        <h1 class="text-4xl md:text-6xl font-serif text-navy mb-4">Manage What Shows On The Menu Page</h1>
+                        <p class="text-gray-600 font-light leading-relaxed text-lg mb-6">This admin platform controls only the storefront menu. Upload product images to Supabase Storage, choose the right filter groups, and publish products directly into the customer-facing menu with live realtime updates.</p>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="luxe-card rounded-[28px] p-5"><p class="text-gold text-[10px] uppercase tracking-[0.3em] mb-2">Backend</p><p id="admin-setup-message" class="text-sm text-gray-500 font-light leading-relaxed">Waiting for Supabase configuration.</p></div>
+                            <div class="luxe-card rounded-[28px] p-5"><p class="text-gold text-[10px] uppercase tracking-[0.3em] mb-2">Scope</p><p class="text-sm text-gray-500 font-light leading-relaxed">Products, images, publishing status, and all existing menu filters stay in sync from one place.</p></div>
+                        </div>
+                    </div>
+
+                    <section class="rounded-[40px] bg-white border border-gold/10 p-8 panel-luxe">
+                        <div class="mb-6">
+                            <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-3">Direct Access Mode</p>
+                            <h2 class="text-3xl font-serif text-navy mb-3">Realtime Menu Control</h2>
+                            <p class="text-gray-500 font-light leading-relaxed">This page now connects directly with your public Supabase project credentials. Any change you make here can appear on the customer menu immediately.</p>
+                        </div>
+                        <div class="rounded-[28px] bg-cream border border-gold/10 px-5 py-5 text-sm text-gray-500 font-light leading-relaxed">
+                            Keep this page private. Since authentication has been removed from the admin platform, anyone who can open this page can manage menu products with your current frontend credentials.
+                        </div>
+                    </section>
+                </div>
+
+                <section class="rounded-[40px] bg-navy text-white p-8 md:p-10 panel-luxe">
+                    <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-3">How It Works</p>
+                    <h2 class="text-3xl md:text-4xl font-serif mb-5">Publish Products With The Right Filter Logic</h2>
+                    <div class="space-y-4 text-white/75 font-light leading-relaxed">
+                        <p>1. Open this admin page privately on your own device.</p>
+                        <p>2. Fill in the product name, summary, image, and single-choice categories like type, collection, and order style.</p>
+                        <p>3. Select the matching multi-choice filters such as occasion, preferences, volume, and bestsellers.</p>
+                        <p>4. Publish it live immediately or save it as a draft by turning off the active switch. The menu page will update in realtime.</p>
+                    </div>
+                    <div class="mt-8 rounded-[28px] bg-white/5 border border-white/10 p-6">
+                        <p class="text-gold text-[10px] uppercase tracking-[0.3em] mb-2">Current Status</p>
+                        <p id="admin-status" class="text-sm font-light text-white/75">Preparing admin console...</p>
+                    </div>
+                </section>
+            </div>
+
+            <section id="admin-console" class="grid xl:grid-cols-[minmax(0,1.05fr)_420px] gap-10 items-start">
+                <div class="space-y-8">
+                    <div class="rounded-[40px] bg-white border border-gold/10 p-8 md:p-10 panel-luxe">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                            <div>
+                                <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-3">Product Editor</p>
+                                <h2 id="admin-form-title" class="text-3xl font-serif text-navy">Add a Menu Product</h2>
+                            </div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-gray-400">Supabase-connected product publishing</p>
+                        </div>
+
+                        <form id="admin-product-form" class="space-y-8">
+                            <input type="hidden" id="admin-product-id">
+                            <div class="grid lg:grid-cols-2 gap-4">
+                                <input type="text" id="admin-name" placeholder="Product name" class="w-full rounded-2xl border border-gold/10 bg-cream px-4 py-4 outline-none focus:border-gold">
+                                <input type="url" id="admin-image-url" placeholder="Or paste a product image URL" class="w-full rounded-2xl border border-gold/10 bg-cream px-4 py-4 outline-none focus:border-gold">
+                                <textarea id="admin-short" placeholder="Short description for the menu card" class="lg:col-span-2 w-full rounded-2xl border border-gold/10 bg-cream px-4 py-4 h-28 outline-none focus:border-gold"></textarea>
+                                <div class="lg:col-span-2 rounded-[28px] border border-gold/10 bg-cream px-5 py-5">
+                                    <label class="block text-[10px] uppercase tracking-[0.3em] text-gold mb-3">Upload Product Image</label>
+                                    <input type="file" id="admin-image-file" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-navy file:px-4 file:py-3 file:text-xs file:font-bold file:uppercase file:tracking-widest file:text-white hover:file:bg-gold">
+                                </div>
+                            </div>
+
+                            <div id="admin-filter-groups" class="grid md:grid-cols-2 gap-6"></div>
+
+                            <label class="flex items-center justify-between gap-4 rounded-[28px] border border-gold/10 bg-cream px-5 py-4">
+                                <span>
+                                    <span class="block text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Publish Status</span>
+                                    <span class="text-sm text-gray-500 font-light">Keep this on if the item should appear immediately on the menu page.</span>
+                                </span>
+                                <input type="checkbox" id="admin-is-active" class="h-5 w-5 rounded border-gold/30 text-gold focus:ring-gold" checked>
+                            </label>
+
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <button type="submit" class="flex-1 gold-gradient text-navy font-bold py-4 rounded-2xl uppercase tracking-widest"><span id="admin-submit-label">Publish Product</span></button>
+                                <button id="admin-reset-form" type="button" class="px-6 py-4 rounded-2xl border border-gold/15 text-xs font-bold uppercase tracking-widest text-navy hover:border-gold hover:text-gold transition">Reset Form</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="rounded-[40px] bg-white border border-gold/10 p-8 md:p-10 panel-luxe">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                            <div>
+                                <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-3">Menu Catalog</p>
+                                <h2 class="text-3xl font-serif text-navy">Live Products</h2>
+                            </div>
+                            <p id="admin-product-count" class="text-xs uppercase tracking-[0.3em] text-gray-400">0 products</p>
+                        </div>
+                        <div id="admin-product-list" class="space-y-5"></div>
+                    </div>
+                </div>
+
+                <aside class="space-y-8 xl:sticky xl:top-28">
+                    <div class="rounded-[40px] bg-white border border-gold/10 p-8 panel-luxe">
+                        <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-3">Image Preview</p>
+                        <div id="admin-image-preview"></div>
+                    </div>
+                    <div class="rounded-[40px] bg-white border border-gold/10 p-8 panel-luxe">
+                        <p class="text-gold text-[10px] uppercase tracking-[0.35em] mb-3">Backend Checklist</p>
+                        <ul class="space-y-3 text-sm text-gray-500 font-light leading-relaxed">
+                            <li>Create the `menu_products` table using the included SQL file.</li>
+                            <li>Create a public storage bucket for product images.</li>
+                            <li>Paste your Supabase keys into `supabase-config.js`.</li>
+                            <li>Keep this page private because authentication has been removed.</li>
+                        </ul>
+                    </div>
+                </aside>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer-luxe text-white pt-20 pb-12 px-6"><div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[10px] uppercase tracking-[0.35em] text-white/35"><p>&copy; <span data-footer-year>2026</span> Fransmore Cakes and Pastries</p><p>Menu admin for Supabase-powered product publishing.</p></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="fransmore.js"></script>
+</body>
+</html>

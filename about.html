@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fransmore | Our Story</title>
+    <link rel="icon" type="image/png" href="assets/fransmore-logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { gold: '#D4AF37', navy: '#1A202C', charcoal: '#2D3748', cream: '#FDFBF7' },
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fransmore.css">
+</head>
+<body class="font-sans bg-cream" data-page="about">
+    <header class="sticky top-0 z-50 glass-nav border-b border-gold/10 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="brand-mark">
+                <span class="brand-logo-shell"><img src="assets/fransmore-logo.png" alt="Fransmore Cakes and Pastries logo" class="brand-logo"></span>
+                <span class="brand-copy">
+                    <span class="brand-title">Fransmore</span>
+                    <span class="brand-subtitle">Cakes and Pastries</span>
+                </span>
+            </a>
+            <div class="hidden lg:flex items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal">
+                <a href="index.html" data-nav="home" class="nav-link hover:text-gold">Home</a>
+                <a href="menu.html" data-nav="menu" class="nav-link hover:text-gold">Menu</a>
+                <a href="about.html" data-nav="about" class="nav-link text-gold">Our Story</a>
+                <a href="contact.html" data-nav="contact" class="nav-link hover:text-gold">Contact</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="startGenericOrder()" class="hidden sm:inline-flex bg-navy text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-gold transition shadow-lg">Order via WhatsApp</button>
+                <button onclick="toggleMobileMenu()" class="lg:hidden w-11 h-11 rounded-full border border-gold/20 text-navy flex items-center justify-center hover:border-gold hover:text-gold transition"><i data-lucide="menu" class="w-5 h-5"></i></button>
+            </div>
+        </nav>
+        <div id="mobile-nav" class="hidden lg:hidden border-t border-gold/10 bg-white/90 backdrop-blur-xl">
+            <div class="max-w-7xl mx-auto px-6 py-5 space-y-3">
+                <a href="index.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Home</a>
+                <a href="menu.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Menu</a>
+                <a href="about.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-gold transition">Our Story</a>
+                <a href="contact.html" class="block text-[11px] uppercase tracking-[0.25em] font-bold text-charcoal hover:text-gold transition">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell py-24 px-6 max-w-7xl mx-auto">
+        <article class="prose-luxe">
+            <div class="text-center mb-16">
+                <span class="text-gold text-[10px] uppercase tracking-[0.4em] font-bold block mb-4">Our Heritage</span>
+                <h1 class="text-navy font-serif text-4xl md:text-6xl mb-8 leading-tight">The Fransmore Story: <br><span class="italic font-normal">Crafting Moments, One Crunch at a Time</span></h1>
+                <div class="w-24 h-px bg-gold/30 mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-[1fr_400px] gap-16 items-start">
+                <div class="space-y-12 text-charcoal/80">
+                    <section class="space-y-12">
+                <div class="grid md:grid-cols-5 gap-12 items-start">
+                    <h2 class="md:col-span-2 text-navy font-serif text-2xl md:text-3xl leading-snug">Our Origin: <br>The Heart of the Home</h2>
+                    <p class="md:col-span-3 text-lg font-light leading-relaxed">
+                        Fransmore began not in a boardroom, but in a bustling home kitchen. It started with a simple, unwavering belief: that the most memorable flavors come from patience, premium ingredients, and a touch of artisan soul. What began as <strong>Oby’s Home Kitchen</strong>—a private passion for perfecting the "Crunch Factor" in traditional snacks and the airy elegance of a celebration cake—has evolved into a brand that speaks to the world.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-5 gap-12 items-start">
+                    <h2 class="md:col-span-2 text-navy font-serif text-2xl md:text-3xl leading-snug">The Artisan Philosophy</h2>
+                    <div class="md:col-span-3 space-y-6 text-lg font-light leading-relaxed">
+                        <p>At Fransmore, we don’t just bake; we architect experiences. We understand that a <strong>Wedding Cake</strong> is more than a dessert—it is a centerpiece of a lifelong promise. We know that a jar of our <strong>Signature Chinchin</strong> isn’t just a snack—it’s a comforting companion for a busy afternoon.</p>
+                        <p>Whether it’s the golden, flaky crust of our gourmet Meat Pies or the vibrant, refreshing notes of our artisan Zobo and Tigernut blends, every product is a testament to our obsession with quality. We bridge the gap between traditional heritage and modern culinary excellence.</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-5 gap-12 items-start">
+                    <h2 class="md:col-span-2 text-navy font-serif text-2xl md:text-3xl leading-snug">From Local Roots <br>to Global Palates</h2>
+                    <div class="md:col-span-3 space-y-6 text-lg font-light leading-relaxed">
+                        <p>While our journey is deeply rooted in the vibrant energy of Nigeria, our vision knows no borders. Fransmore is a brand built for the global citizen—the person who appreciates the fine balance of a perfectly layered Parfait and the rustic charm of hand-roasted Peanuts.</p>
+                        <p>We are a growing family of creators, bakers, and flavor-makers committed to bringing a taste of artisan luxury to every table, regardless of the map. Our commitment remains the same: to ensure that every interaction with a Fransmore product feels like a personal invitation to "eat and be happy."</p>
+                    </div>
+                </div>
+                    </section>
+
+                    <div class="bg-navy/5 p-12 rounded-[40px] border border-gold/10 text-center mt-20">
+                        <h2 class="text-navy font-serif text-2xl mb-6">Our Promise</h2>
+                        <p class="text-lg font-light italic leading-relaxed max-w-2xl mx-auto">
+                            "We promise transparency in our ingredients, passion in our process, and excellence in our delivery. From our home kitchen to your celebration, we are honored to be a part of your story."
+                        </p>
+                        <p class="mt-8 text-gold font-bold uppercase tracking-[0.3em] text-[10px]">Welcome to Fransmore. Taste the Craft.</p>
+                    </div>
+                </div>
+
+                <aside class="hidden lg:block sticky top-32">
+                    <div class="rounded-[40px] overflow-hidden border border-gold/10 shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500"><img src="assets/fransmore-story.png" alt="Fransmore artisan process" class="w-full h-auto object-cover"></div>
+                </aside>
+            </div>
+        </article>
+
+        <div class="text-center pt-20">
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="menu.html" class="gold-gradient text-navy px-10 py-5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:opacity-90 transition shadow-xl">Browse The Menu</a>
+                <button onclick="startServiceInquiry()" class="border border-navy/20 px-10 py-5 rounded-full text-[10px] font-bold uppercase tracking-widest text-navy hover:bg-navy hover:text-white transition">Ask About Services</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-luxe text-white pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[10px] uppercase tracking-[0.35em] text-white/35">
+            <p>&copy; <span data-footer-year>2026</span> Fransmore Cakes and Pastries</p>
+            <p>Crafted for elegant celebrations and daily cravings globally.</p>
+        </div>
+    </footer>
+
+    <div class="lg:hidden fixed bottom-4 inset-x-4 z-40">
+        <div class="floating-order-bar rounded-[28px] bg-white/95 backdrop-blur-xl border border-gold/15 p-3 flex items-center gap-3">
+            <button onclick="startGenericOrder()" class="flex-1 bg-navy text-white px-4 py-4 rounded-[20px] text-[10px] font-bold uppercase tracking-widest">Order Now</button>
+            <button onclick="startServiceInquiry()" class="flex-1 border border-gold/15 text-navy px-4 py-4 rounded-[20px] text-[10px] font-bold uppercase tracking-widest">Inquire</button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function toggleMobileMenu() {
+            document.getElementById('mobile-nav').classList.toggle('hidden');
+        }
+        function startGenericOrder() {
+            window.open(`https://wa.me/2348058329165?text=Hi Fransmore, I'd like to place an order.`, '_blank');
+        }
+        function startServiceInquiry() {
+            window.open(`https://wa.me/2348058329165?text=Hi Fransmore, I'd like to inquire about your event catering and cake services.`, '_blank');
+        }
+    </script>
+</body>
+</html>
